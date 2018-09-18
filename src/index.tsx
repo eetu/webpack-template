@@ -1,16 +1,16 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+import App from './components/app';
+
 import './index.css';
 
-const App = () => {
-  return <div>Hello World!</div>;
-};
-
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App text="Hello world!" />, document.getElementById('app'));
 
 if (module.hot) {
   module.hot.accept('./index', () => {
     // accept hot reload
   });
 }
+
+export default App;
