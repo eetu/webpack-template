@@ -31,6 +31,18 @@ module.exports = {
         ],
         include: path.resolve(__dirname, 'src'),
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/',
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
