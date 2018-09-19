@@ -1,4 +1,5 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
@@ -48,6 +49,11 @@ module.exports = {
     },
   },
   plugins: [
+    new Dotenv({
+      path: '.env',
+      safe: '.env.sample',
+      systemvars: true,
+    }),
     new ForkTsCheckerWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: './src/index.html',

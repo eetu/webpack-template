@@ -5,7 +5,10 @@ import App from './components/app';
 
 import './index.css';
 
-ReactDOM.render(<App text="Hello world!" />, document.getElementById('app'));
+ReactDOM.render(
+  <App text={process.env.MESSAGE} />,
+  document.getElementById('app')
+);
 
 if (module.hot) {
   module.hot.accept('./index', () => {

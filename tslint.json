@@ -4,6 +4,7 @@
     "jsx-wrap-multiline": false,
     "quotemark": [true, "single", "jsx-double", "avoid-escape"],
     "interface-name": false,
-    "no-implicit-dependencies": false
+    "no-implicit-dependencies": false,
+    "trailing-comma": false
   }
 }
