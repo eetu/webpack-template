@@ -27,6 +27,7 @@ module.exports = merge(common, {
               sourceMap: true,
               convertToAbsoluteUrls: true,
               camelCase: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]',
             },
           },
         ],
