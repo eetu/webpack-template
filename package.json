@@ -43,6 +43,7 @@
     "@types/node": "^10.10.1",
     "@types/webpack-env": "^1.13.6",
     "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "dotenv-webpack": "^1.5.7",
     "enzyme": "^3.6.0",

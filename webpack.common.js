@@ -1,5 +1,6 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
@@ -67,8 +68,9 @@ module.exports = {
       systemvars: true,
     }),
     new ForkTsCheckerWebpackPlugin(),
+    new CopyWebpackPlugin(['public']),
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
       filename: './index.html',
     }),
   ],
