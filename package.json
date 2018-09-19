@@ -30,6 +30,12 @@
       "node"
     ]
   },
+  "postcss": {
+    "map": false,
+    "plugins": {
+      "postcss-modules-values": {}
+    }
+  },
   "devDependencies": {
     "@types/enzyme": "^3.1.14",
     "@types/enzyme-adapter-react-16": "^1.0.3",
@@ -49,6 +55,8 @@
     "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.4.2",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-modules-values": "^1.3.0",
     "style-loader": "^0.23.0",
     "ts-jest": "^23.1.4",
     "ts-loader": "^5.1.1",
