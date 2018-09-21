@@ -33,13 +33,12 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|woff|ttf|otf)$/, // add more asset types here
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
+              name: '[path][name].[hash].[ext]',
             },
           },
         ],

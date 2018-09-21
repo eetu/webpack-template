@@ -9,7 +9,7 @@
 }
 
 .test-asset {
-  background-image: url('../assets/SVG_Logo.svg');
+  background-image: url('../../assets/images/SVG_Logo.svg');
   background-repeat: no-repeat;
   background-position: center;
   width: 128px;
