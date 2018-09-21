@@ -12,6 +12,7 @@ module.exports = merge(common, {
     contentBase: './dist',
     historyApiFallback: true,
     hot: true,
+    stats: 'minimal',
   },
   output: {
     pathinfo: false,

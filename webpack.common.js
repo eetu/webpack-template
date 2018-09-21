@@ -20,6 +20,15 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
+        enforce: 'pre',
+        use: [
+          {
+            loader: 'tslint-loader',
+          },
+        ],
+      },
+      {
+        test: /\.tsx?$/,
         use: [
           {
             loader: 'ts-loader',
