@@ -1,3 +1,4 @@
+const DevserverQRcodeWebpackPlugin = require('devserver-qrcode-webpack-plugin');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
@@ -47,6 +48,9 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
+    }),
+    new DevserverQRcodeWebpackPlugin({
+      size: 'small',
     }),
   ],
 });
