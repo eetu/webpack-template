@@ -17,6 +17,29 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
+        test: /\.(j|t)sx?$/,
+        enforce: 'pre',
+        use: [
+          {
+            loader: 'tslint-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(j|t)sx?$/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              happyPackMode: true,
+              experimentalWatchApi: true,
+            },
+          },
+        ],
+        include: path.resolve(__dirname, 'src'),
+      },
+      {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,

@@ -7,11 +7,13 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'eval',
   devServer: {
     contentBase: './dist',
+    port: 3000,
+    host: '0.0.0.0' /* Allow connecting devserver from external IP-address */,
+    public: 'localhost:3000' /* Open by default to localhost:3000 */,
     historyApiFallback: true,
-    hot: true,
     stats: 'minimal',
   },
   output: {
@@ -19,6 +21,29 @@ module.exports = merge(common, {
   },
   module: {
     rules: [
+      {
+        test: /\.(j|t)sx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+            babelrc: false,
+            presets: [
+              [
+                '@babel/preset-env',
+                { targets: { browsers: 'last 2 versions' } },
+              ],
+              '@babel/preset-typescript',
+              '@babel/preset-react',
+            ],
+            plugins: [
+              ['@babel/plugin-proposal-class-properties', { loose: true }],
+              'react-hot-loader/babel',
+            ],
+          },
+        },
+      },
       {
         test: /\.css$/,
         use: [
@@ -45,7 +70,6 @@ module.exports = merge(common, {
     splitChunks: false,
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',

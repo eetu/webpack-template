@@ -10,10 +10,4 @@ ReactDOM.render(
   document.getElementById('app')
 );
 
-if (module.hot) {
-  module.hot.accept('./index', () => {
-    // accept hot reload
-  });
-}
-
 export default App;
