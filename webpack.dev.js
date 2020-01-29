@@ -22,6 +22,11 @@ module.exports = merge(common, {
   output: {
     pathinfo: false,
   },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+  },
   module: {
     rules: [
       {
@@ -52,11 +57,11 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
               sourceMap: true,
-              convertToAbsoluteUrls: true,
-              camelCase: true,
-              localIdentName: '[name]__[local]--[hash:base64:5]',
+              localsConvention: 'camelCase',
+              modules: {
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
             },
           },
           'postcss-loader',
