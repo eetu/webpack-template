@@ -7,7 +7,7 @@ interface AppProps {
   text?: string;
 }
 
-const App: React.StatelessComponent<AppProps> = (props) => {
+const App: React.StatelessComponent<AppProps> = (props: AppProps) => {
   const { text } = props;
 
   return (

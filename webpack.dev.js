@@ -1,12 +1,15 @@
 const DevserverQRcodeWebpackPlugin = require('devserver-qrcode-webpack-plugin');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
 
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'development',
+  entry: {
+    vendor: ['@babel/polyfill'],
+    main: ['./src/index.tsx'],
+  },
   devtool: 'eval',
   devServer: {
     contentBase: './dist',
@@ -30,15 +33,13 @@ module.exports = merge(common, {
             cacheDirectory: true,
             babelrc: false,
             presets: [
-              [
-                '@babel/preset-env',
-                { targets: { browsers: 'last 2 versions' } },
-              ],
+              ['@babel/preset-env', { targets: { browsers: 'last 2 versions' } }],
               '@babel/preset-typescript',
               '@babel/preset-react',
             ],
             plugins: [
               ['@babel/plugin-proposal-class-properties', { loose: true }],
+              '@babel/plugin-proposal-optional-chaining',
               'react-hot-loader/babel',
             ],
           },

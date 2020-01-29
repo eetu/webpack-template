@@ -1,7 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const { EnvironmentPlugin } = require('webpack');
 
 const path = require('path');
 
@@ -15,15 +15,6 @@ module.exports = {
           {
             loader: 'html-loader',
             options: { minimize: true },
-          },
-        ],
-      },
-      {
-        test: /\.tsx?$/,
-        enforce: 'pre',
-        use: [
-          {
-            loader: 'tslint-loader',
           },
         ],
       },
@@ -70,11 +61,7 @@ module.exports = {
     },
   },
   plugins: [
-    new Dotenv({
-      path: '.env',
-      safe: '.env.sample',
-      systemvars: true,
-    }),
+    new EnvironmentPlugin(['MESSAGE']), // Add environment variables that are passed to React components here
     new ForkTsCheckerWebpackPlugin(),
     new CopyWebpackPlugin(['public']),
     new HtmlWebPackPlugin({

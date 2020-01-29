@@ -1,4 +1,4 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -19,11 +19,6 @@ module.exports = merge(common, {
       {
         test: /\.(j|t)sx?$/,
         enforce: 'pre',
-        use: [
-          {
-            loader: 'tslint-loader',
-          },
-        ],
       },
       {
         test: /\.(j|t)sx?$/,
@@ -70,6 +65,6 @@ module.exports = merge(common, {
       chunkFilename: '[id].[contenthash].css',
     }),
     new webpack.HashedModuleIdsPlugin(),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
   ],
 });
