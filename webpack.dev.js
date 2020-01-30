@@ -4,6 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const common = require('./webpack.common.js');
 
+const open =
+  process.env.OPEN_BROWSER === 'true'
+    ? true
+    : [undefined, 'false'].includes(process.env.OPEN_BROWSER)
+    ? false
+    : process.env.OPEN_BROWSER;
+
 module.exports = merge(common, {
   mode: 'development',
   entry: {
@@ -18,6 +25,7 @@ module.exports = merge(common, {
     public: 'localhost:3000' /* Open by default to localhost:3000 */,
     historyApiFallback: true,
     stats: 'minimal',
+    open,
   },
   output: {
     pathinfo: false,

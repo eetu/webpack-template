@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "test": "env-cmd -f .env.example jest --watch",
-    "start": "env-cmd -f .env webpack-dev-server --hot --open --config webpack.dev.js",
+    "start": "env-cmd -f .env webpack-dev-server --hot --config webpack.dev.js",
     "build": "env-cmd -f .env webpack --config webpack.prod.js",
     "lint:ts": "eslint './**/*.{js,ts,tsx}'",
     "lint:css": "stylelint \"src/**/*.tsx\"",
